@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+
+    <h2>Login</h2>
+
+    <form action="/login" method="post">
+        <div>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <div>
+            <button type="submit">Login</button>
+        </div>
+    </form>
+
+    <p>Or, login with your social account:</p>
+
+    <a th:href="@{/facebookLogin}">
+        <button class="btn facebook-btn social-btn" type="button">
+            <span><i class="fab fa-facebook-f"></i> Sign in with Facebook</span>
+        </button>
+    </a>
+</a>
+
+</body>
+</html>
