@@ -39,7 +39,7 @@ public class FacebookController {
     {
     	OAuth2Operations operations = factory.getOAuthOperations();
     	OAuth2Parameters params = new OAuth2Parameters();
-    	params.setRedirectUri("http://localhost:8080/doLogin");
+    	params.setRedirectUri("https://www.planotechevents.com");
     	params.setScope("email,public_profile");
     	String authurl = operations.buildAuthenticateUrl(params);
     	System.out.println("Generated url is :" + authurl);
@@ -49,11 +49,11 @@ public class FacebookController {
     @GetMapping("/doLogin")
     public String doLogin(@RequestParam("code") String code,ModelMap map)
     {
-    	System.out.println("code is............"+ code);
+    	System.out.println("code is............"+ code); 
     	OAuth2Operations operations = factory.getOAuthOperations();
     	
     	//creating accessToken
-    	AccessGrant accessToken = operations.exchangeForAccess(code, "http://localhost:8080/doLogin", null);
+    	AccessGrant accessToken = operations.exchangeForAccess(code, "https://www.planotechevents.com", null);
     	System.out.println("accessToken......"+ accessToken);
     	Connection<Facebook> connection = factory.createConnection(accessToken);
     	Facebook facebook = connection.getApi();
